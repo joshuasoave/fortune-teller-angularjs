@@ -9,8 +9,16 @@
         <header>
             Fortune Teller
         </header>
-        <div >
+        <div ng-if="cardsDealt !== true">
           <img ng-click="dealCards()" src="https://cdn.shopify.com/s/files/1/1633/8969/products/300-063_RadiantRiderWaite_5.jpg?v=1500496205" alt="back of a tarot card"/>
+        </div>
+        <div ng-if="cardsDealt === true" ng-repeat="card in cards">
+          {{checkInverted()}}
+          <div>
+            <h1>{{card.name}}</h1>
+            <p ng-if="inverted === true">{{card.meaning_rev}}</p>
+            <p ng-if="inverted === false">{{card.meaning_up}}</p>
+          </div>
         </div>
     </div>
   </body>
