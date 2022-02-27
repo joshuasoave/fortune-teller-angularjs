@@ -1,0 +1,33 @@
+{
+  "name": "fortune-teller-angularjs",
+  "version": "1.0.0",
+  "description": "An app to help you see the future",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joshuasoave/fortune-teller-angularjs.git"
+  },
+  "keywords": [
+    "tarot",
+    "future",
+    "fortune"
+  ],
+  "author": "Joshs",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/joshuasoave/fortune-teller-angularjs/issues"
+  },
+  "homepage": "https://github.com/joshuasoave/fortune-teller-angularjs#readme",
+  "dependencies": {
+    "@types/angular": "^1.8.4",
+    "dotenv": "^16.0.0",
+    "express": "^4.17.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.5.5"
+  }
+}
