@@ -1,17 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+      <link href="/css/styles.css" rel="stylesheet">
       <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
       <script type="text/javascript" src="/js/app.js"></script>
   </head>
   <body ng-app="fortuneTeller">
     <div ng-controller="fortuneTellerCtrl as ft">
-        <header>
-            Fortune Teller
+        <header class="d-flex justify-content-center bg-black text-white border-bottom border-4 border-primary">
+            <h3>Fortune Teller</h3>
         </header>
-        <div >
-          <img ng-click="dealCards()" src="https://cdn.shopify.com/s/files/1/1633/8969/products/300-063_RadiantRiderWaite_5.jpg?v=1500496205" alt="back of a tarot card"/>
+        <div class="container d-flex justify-content-center flex-column mx-auto">
+          <div ng-if="cardsDealt !== true" class="d-flex flex-row justify-content-center pt-4">
+            <img ng-click="dealCards()" src="https://cdn.shopify.com/s/files/1/1633/8969/products/300-063_RadiantRiderWaite_5.jpg?v=1500496205" alt="back of a tarot card"/>
+          </div>
+          <div class="d-flex justify-content-start" ng-if="cardsDealt === true" ng-repeat="card in cards">
+            {{checkInverted()}}
+           <div class="d-flex flex-column align-items-stretch w-100">
+              <h5 class="pt-2">{{time[$index]}}</h5>
+              <div class="text-left card card-body my-1">
+                <h3 class="text-left card-title">{{card.name}}</h3>
+                <p class="card-text" ng-if="inverted === true">{{card.meaning_rev}}</p>
+                <p class="card-text" ng-if="inverted === false">{{card.meaning_up}}</p>
+              </div>
+           </div>
+
+          </div>
+          <button class="btn back-btn btn-primary pt-2" ng-if="cardsDealt === true" ng-click="goBack()">Back</button>
         </div>
+        <footer class="position-absolute bottom-0">
+          By: Josh Soave
+        </footer>
     </div>
   </body>
 </html>
