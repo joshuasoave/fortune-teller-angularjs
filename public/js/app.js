@@ -17,5 +17,10 @@ app.controller('fortuneTellerCtrl', ['$http', '$scope', function($http, $scope){
         } else {
             $scope.inverted = false
         }
-  }
+    }
+    $scope.goBack = () => {
+        $scope.cardsDealt = false
+    }
+
+    $scope.time = ["Past", "Present", "Future"];
 }])
